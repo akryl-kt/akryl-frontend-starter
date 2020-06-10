@@ -5,4 +5,9 @@ if (config.devServer) {
     config.entry = config.entry.map(
         s => s.replace(`/js/packages/${projectName}/kotlin/`, "/js/entry/kotlin/"),
     );
+
+    // Redirect all unknown URLs to index.html.
+    config.devServer.historyApiFallback = {
+        index: 'index.html',
+    };
 }
